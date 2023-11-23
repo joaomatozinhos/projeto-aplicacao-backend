@@ -3,16 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
+import { CadastroComponent } from './pages/clientes/cadastro/cadastro.component';
+import { EdicaoComponent } from './pages/clientes/edicao/edicao.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, TelaInicialComponent, ClientesComponent, CadastroComponent, EdicaoComponent],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
