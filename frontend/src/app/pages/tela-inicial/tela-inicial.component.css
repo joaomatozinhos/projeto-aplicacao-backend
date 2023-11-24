@@ -1,0 +1,5 @@
+.cabecalho__titulo {
+    background: var(--primary-color);
+    text-align: center;
+    padding: 15px;
+}
