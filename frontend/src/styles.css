@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #3f51b5;
+    --blue-strong: #8395fc;
+    --secundary-color: #fafafa;
+    --font-color: #040503;
+    --default-font: 'Roboto', sans-serif;
+    --linear-botes: linear-gradient(180deg, #8395fc 0%, #3f51b5 100%);
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: var(--default-font);
+}
+
+h1, h2 {
+    color: var(--secundary-color);
+}
+
+p {
+    color: var(--font-color);
+}

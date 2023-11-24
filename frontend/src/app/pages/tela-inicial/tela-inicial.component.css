@@ -1,11 +1,63 @@
-body {
-    min-height: 100vh;
-    background-color: var(--primary-color);
-
+.cabecalho {
+    background-color: var(--secundary-color);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
 }
 
 .cabecalho__titulo {
-    font-size: 3.5em;
-    text-align: center;
+    margin-left: 1em;
+    text-align: left;
+    font-size: 2em;
     padding: 15px;
+    color: var(--primary-color);
+}
+
+.cabecalho__login {
+    margin-right: 1em;
+    color: var(--primary-color);
+    padding: 5px;
+}
+
+.strong__titulo {
+    color: var(--blue-strong);
+}
+
+.apresentacao {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sect-texto{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
+
+.sect__destaque {
+    font-size: 1.8em;
+}
+
+.sect__descricao {
+    font-size: 1.2em;
+}
+
+.btn__cadastrar {
+    border: none;
+    cursor: pointer;
+    border-radius: 3.2rem;
+    color: var(--secundary-color);
+    background: var(--linear-botes);
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; 
+}
+
+.sec-img-01 {
+    width: 300px;
+    height: 300px;
 }
