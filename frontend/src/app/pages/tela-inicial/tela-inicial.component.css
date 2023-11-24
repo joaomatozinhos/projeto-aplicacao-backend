@@ -1,5 +1,11 @@
+body {
+    min-height: 100vh;
+    background-color: var(--primary-color);
+
+}
+
 .cabecalho__titulo {
-    background: var(--primary-color);
+    font-size: 3.5em;
     text-align: center;
     padding: 15px;
 }
