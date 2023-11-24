@@ -1,13 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
-import { ClientesComponent } from './pages/clientes/clientes.component';
 import { CadastroComponent } from './pages/clientes/cadastro/cadastro.component';
+import { ClientesComponent } from './pages/clientes/clientes.component';
 import { EdicaoComponent } from './pages/clientes/edicao/edicao.component';
+import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,7 +27,21 @@ import { EdicaoComponent } from './pages/clientes/edicao/edicao.component';
     CadastroComponent,
     EdicaoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

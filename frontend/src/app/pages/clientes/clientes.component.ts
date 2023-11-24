@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientesService } from './cliente.service';
 import { Cliente } from 'src/common/model/Cliente';
+import { ClientesService } from './cliente.service';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-clientes',
@@ -8,14 +9,29 @@ import { Cliente } from 'src/common/model/Cliente';
   styleUrls: ['./clientes.component.css'],
 })
 export class ClientesComponent implements OnInit {
-  constructor(private clienteService: ClientesService) {}
+  public pesquisaForm!: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private clienteService: ClientesService
+  ) {}
 
   ngOnInit(): void {
+    this.initForm();
     // this.cadastrarCliente();
     // this.buscarTodosClientes();
     // this.buscarClientePorId(4);
     // this.excluirCliente(6);
     // this.editarCliente(4);
+  }
+
+  public initForm() {
+    this.pesquisaForm = this.formBuilder.group({
+      nome: new FormControl(''),
+      cpf: new FormControl(''),
+      uf: new FormControl(''),
+      cidade: new FormControl(''),
+    });
   }
 
   public cadastrarCliente() {

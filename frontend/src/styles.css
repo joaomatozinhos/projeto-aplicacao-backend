@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --primary-color: #3f51b5;
+    --primary-color: #2d2de6;
     --blue-strong: #8395fc;
     --secundary-color: #fafafa;
     --font-color: #040503;
@@ -22,4 +22,18 @@ h1, h2 {
 
 p {
     color: var(--font-color);
+}
+
+mat-label {
+  text-transform: capitalize;
+}
+
+.btn-basic {
+  background-color: #eeeeee;
+  border: 1px solid #2d2de6;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
 }

@@ -1,1 +1,68 @@
-<p>clientes works!</p>
+<div>
+  <h1>Gerenciar Clientes</h1>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel expanded="true">
+    <mat-expansion-panel-header>
+      <mat-panel-title> Filtros de pesquisa </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="pesquisaForm" class="example-container">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>Nome</mat-label>
+          <input
+            matInput
+            formControlName="nome"
+            placeholder="Digite o nome do cliente"
+          />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>CPF</mat-label>
+          <input
+            matInput
+            formControlName="cpf"
+            placeholder="Digite o CPF do cliente"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>UF</mat-label>
+          <input matInput formControlName="uf" placeholder="Digite o estado" />
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>Cidade</mat-label>
+          <input
+            matInput
+            formControlName="cidade"
+            placeholder="Digite a cidade"
+          />
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div class="row">
+      <button mat-flat-button class="btn-basic">Limpar</button>
+      <button mat-flat-button class="btn-primary">Pesquisar</button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
