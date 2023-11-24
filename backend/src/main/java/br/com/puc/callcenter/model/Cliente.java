@@ -55,4 +55,26 @@ public class Cliente {
 	public Endereco getEndereco() {
 		return endereco;
 	}
+
+	public void atualizaDados(Cliente cliente) {
+		if (cliente.getNome() != null) {
+			this.nome = cliente.getNome();
+		}
+
+		if (cliente.getCpf() != null) {
+			this.telefone = cliente.getCpf();
+		}
+
+		if (cliente.getEmail() != null) {
+			this.telefone = cliente.getEmail();
+		}
+
+		if (cliente.getTelefone() != null) {
+			this.telefone = cliente.getTelefone();
+		}
+
+		if (cliente.getEndereco() != null) {
+			this.endereco.atualizarDados(cliente.getEndereco());
+		}
+	}
 }

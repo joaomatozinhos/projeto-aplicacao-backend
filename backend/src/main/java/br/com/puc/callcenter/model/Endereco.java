@@ -43,4 +43,34 @@ public class Endereco {
 	public String getUf() {
 		return uf;
 	}
+
+	public void atualizarDados(Endereco endereco) {
+		if (endereco.getCep() != null) {
+			this.cep = endereco.getCep();
+		}
+
+		if (endereco.getLogradouro() != null) {
+			this.logradouro = endereco.getLogradouro();
+		}
+
+		if (endereco.getBairro() != null) {
+			this.bairro = endereco.getBairro();
+		}
+
+		if (endereco.getUf() != null) {
+			this.uf = endereco.getUf();
+		}
+
+		if (endereco.getCidade() != null) {
+			this.cidade = endereco.getCidade();
+		}
+
+		if (endereco.getNumero() != null) {
+			this.numero = endereco.getNumero();
+		}
+
+		if (endereco.getComplemento() != null) {
+			this.complemento = endereco.getComplemento();
+		}
+	}
 }
