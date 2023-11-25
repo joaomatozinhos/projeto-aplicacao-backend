@@ -76,8 +76,12 @@
     </form>
 
     <div class="container-flex">
-      <button mat-flat-button class="btn-basic">Limpar</button>
-      <button mat-flat-button class="btn-primary">Pesquisar</button>
+      <button mat-flat-button class="btn-basic" (click)="limparFiltros()">
+        Limpar
+      </button>
+      <button mat-flat-button class="btn-primary" (click)="pesquisarClientes()">
+        Pesquisar
+      </button>
     </div>
   </mat-expansion-panel>
 </mat-accordion>

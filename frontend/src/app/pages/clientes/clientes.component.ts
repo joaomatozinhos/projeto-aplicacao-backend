@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from './cliente.service';
+import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 
 @Component({
   selector: 'app-clientes',
@@ -16,7 +17,7 @@ export class ClientesComponent implements OnInit {
   public pesquisaForm!: FormGroup;
 
   displayedColumns: string[] = ['nome', 'cpf', 'email', 'telefone', 'acao'];
-  dataSource = new MatTableDataSource<Array<Cliente>>();
+  dataSource = new MatTableDataSource<Cliente>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -29,7 +30,7 @@ export class ClientesComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    // this.buscarTodosClientes();
+    this.buscarTodosClientes();
   }
 
   ngAfterViewInit() {
@@ -46,10 +47,33 @@ export class ClientesComponent implements OnInit {
   }
 
   public buscarTodosClientes() {
-    this.clienteService.buscarTodos().subscribe((rs) => {
-      console.log('BUSCA DE TODOS REALIZADA COM SUCESSO', rs);
-      this.dataSource.data = rs;
-    });
+    this.clienteService
+      .buscarTodos()
+      .subscribe((rs: Array<Cliente>) => (this.dataSource.data = rs));
+  }
+
+  public limparFiltros() {
+    this.pesquisaForm.get('nome')?.setValue('');
+    this.pesquisaForm.get('cpf')?.setValue('');
+    this.pesquisaForm.get('uf')?.setValue('');
+    this.pesquisaForm.get('cidade')?.setValue('');
+  }
+
+  public getValoresForm() {
+    let objFilter: PesquisaCliente = {
+      nome: this.pesquisaForm.get('nome')?.value,
+      cpf: this.pesquisaForm.get('cpf')?.value,
+      uf: this.pesquisaForm.get('uf')?.value,
+      cidade: this.pesquisaForm.get('cidade')?.value,
+    };
+
+    return objFilter;
+  }
+
+  public pesquisarClientes() {
+    this.clienteService
+      .pesquisar(this.getValoresForm())
+      .subscribe((rs: Array<Cliente>) => (this.dataSource.data = rs));
   }
 
   public openVisualizar(idCliente: any) {

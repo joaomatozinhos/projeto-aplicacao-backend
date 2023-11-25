@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map } from 'rxjs';
+import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 import { Cliente } from 'src/common/model/Cliente';
 
 @Injectable({
@@ -29,5 +30,9 @@ export class ClientesService {
 
   public excluir(id: number): Observable<any> {
     return this.http.delete(`${this.url}/excluir/${id}`);
+  }
+
+  public pesquisar(filter: PesquisaCliente): Observable<any> {
+    return this.http.post(`${this.url}/pesquisar`, filter);
   }
 }
