@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { VisualizacaoComponent } from './pages/clientes/visualizacao/visualizacao.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ClientesComponent,
     CadastroComponent,
     EdicaoComponent,
+    VisualizacaoComponent,
   ],
   imports: [
     BrowserModule,

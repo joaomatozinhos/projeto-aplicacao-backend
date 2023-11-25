@@ -93,6 +93,10 @@ table {
   width: 100%;
 }
 
+th {
+  text-transform: uppercase;
+}
+
 .mat-header-cell {
   color: var(--tertiary-color);
 }
