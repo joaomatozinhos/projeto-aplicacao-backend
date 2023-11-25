@@ -21,6 +21,8 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VisualizacaoComponent } from './pages/clientes/visualizacao/visualizacao.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { VisualizacaoComponent } from './pages/clientes/visualizacao/visualizaca
     CadastroComponent,
     EdicaoComponent,
     VisualizacaoComponent,
+    LoginComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
