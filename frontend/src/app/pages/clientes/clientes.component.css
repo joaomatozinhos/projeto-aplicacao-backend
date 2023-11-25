@@ -1,1 +1,33 @@
+.container-flex {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.table-title {
+  color: var(--primary-color);
+  font-size: 21px;
+  padding: 20px;
+  border-bottom: 1px solid #cecece;
+}
+
+th {
+  text-transform: uppercase;
+}
+
+.mat-column-nome {
+  width: 24%;
+}
+.mat-column-cpf {
+  width: 24%;
+}
+.mat-column-email {
+  width: 24%;
+}
+.mat-column-telefone {
+  width: 24%;
+}
+.mat-column-acao {
+  width: 2.5%;
+}
 

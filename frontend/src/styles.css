@@ -1,11 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+PALETA DE COR
+.color1 {color: #140f08;}
+.color2 {color: #242957;}
+.color3 {color: #595cb2;}
+.color4 {color: #a499fa;}
+.color5 {color: #ffe1f4;}
+**/
+
 :root {
-    --primary-color: #2d2de6;
-    --blue-strong: #8395fc;
-    --secundary-color: #fafafa;
+    --primary-color: #242957;
+    --secondary-color: #ffe1f4;
+    --tertiary-color: #595cb2;
+    --blue-strong: #a499fa;
     --font-color: #040503;
     --default-font: 'Roboto', sans-serif;
     --linear-botes: linear-gradient(180deg, #8395fc 0%, #3f51b5 100%);
+    --button-width: 130px;
 }
 
 * {
@@ -14,26 +24,84 @@
 
 body {
     font-family: var(--default-font);
+    margin: 0 30px;
 }
 
 h1, h2 {
-    color: var(--secundary-color);
+    color: var(--primary-color);
 }
 
 p {
     color: var(--font-color);
 }
 
+.mat-icon {
+  font-size: 30px;
+  color: var(--tertiary-color);
+}
+
+.title-page {
+  color: var(--primary-color);
+  margin: 30px 10px;
+  font-size: 28px;
+}
+
+.mat-expansion-panel-header-title {
+  color: var(--primary-color);
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.mat-expansion-panel-body{
+  border-top: 1px solid #cecece;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.mat-form-field {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--default-font);
+}
+
+input::placeholder {
+  font-weight: 300;
+}
+
 mat-label {
-  text-transform: capitalize;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .btn-basic {
-  background-color: #eeeeee;
-  border: 1px solid #2d2de6;
+  width: var(--button-width);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .btn-primary {
+  width: var(--button-width);
   background-color: var(--primary-color);
-  color: #ffffff;
+  color: var(--secondary-color);
+}
+
+table {
+  width: 100%;
+}
+
+.mat-header-cell {
+  color: var(--tertiary-color);
+}
+
+.mat-menu-content {
+  background-color: var(--tertiary-color);
+}
+
+.mat-menu-item {
+  color: var(--secondary-color);
+  text-align: center !important;
 }

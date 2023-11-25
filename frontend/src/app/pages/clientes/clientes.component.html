@@ -1,11 +1,14 @@
 <div>
-  <h1>Gerenciar Clientes</h1>
+  <h1 class="title-page">Gerenciar Clientes</h1>
 </div>
 
 <mat-accordion>
   <mat-expansion-panel expanded="true">
     <mat-expansion-panel-header>
-      <mat-panel-title> Filtros de pesquisa </mat-panel-title>
+      <div class="container-flex">
+        <mat-icon>filter_list</mat-icon>
+        <mat-panel-title> Filtros de pesquisa </mat-panel-title>
+      </div>
     </mat-expansion-panel-header>
 
     <form [formGroup]="pesquisaForm" class="example-container">
@@ -60,9 +63,63 @@
       </div>
     </form>
 
-    <div class="row">
+    <div class="container-flex">
       <button mat-flat-button class="btn-basic">Limpar</button>
       <button mat-flat-button class="btn-primary">Pesquisar</button>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
+
+<div class="mat-elevation-z8" style="margin: 30px 0">
+  <div>
+    <h3 class="table-title">Resultados</h3>
+  </div>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cpf">
+      <th mat-header-cell *matHeaderCellDef>CPF</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>E-mail</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefone">
+      <th mat-header-cell *matHeaderCellDef>Telefone</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acao">
+      <th mat-header-cell *matHeaderCellDef>Ação</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>Visualizar</span>
+          </button>
+          <button mat-menu-item>
+            <span>Editar</span>
+          </button>
+          <button mat-menu-item>
+            <span>Excluir</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons>
+  </mat-paginator>
+</div>
