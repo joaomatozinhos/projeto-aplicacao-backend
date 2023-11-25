@@ -4,9 +4,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from './cliente.service';
-import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 
 @Component({
   selector: 'app-clientes',
@@ -16,8 +16,14 @@ import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 export class ClientesComponent implements OnInit {
   public pesquisaForm!: FormGroup;
 
-  displayedColumns: string[] = ['nome', 'cpf', 'email', 'telefone', 'acao'];
-  dataSource = new MatTableDataSource<Cliente>();
+  public displayedColumns: string[] = [
+    'nome',
+    'cpf',
+    'email',
+    'telefone',
+    'acao',
+  ];
+  public dataSource = new MatTableDataSource<Cliente>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -35,6 +41,7 @@ export class ClientesComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   public initForm() {
