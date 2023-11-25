@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.puc.callcenter.dto.PesquisaCliente;
 import br.com.puc.callcenter.model.Cliente;
 import br.com.puc.callcenter.repository.ClienteRepository;
 import jakarta.transaction.Transactional;
@@ -57,6 +58,13 @@ public class ClienteController {
 	@Transactional
 	public void exclui(@PathVariable Long id) {
 		repository.deleteById(id);
+	}
+
+	@CrossOrigin
+	@PostMapping("/pesquisar")
+	@Transactional
+	public List<Cliente> pesquisa(@RequestBody PesquisaCliente filter) {
+		return repository.search(filter.getNome(), filter.getCpf(), filter.getUf(), filter.getCidade());
 	}
 
 }
