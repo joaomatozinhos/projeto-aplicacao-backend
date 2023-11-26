@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -9,6 +8,7 @@ import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
+import { UtilService } from 'src/common/util/util.service';
 import { ClientesService } from './cliente.service';
 
 @Component({
@@ -38,8 +38,8 @@ export class ClientesComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clienteService: ClientesService,
-    private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
@@ -64,7 +64,8 @@ export class ClientesComponent implements OnInit {
   public buscarTodosClientes() {
     this.clienteService.buscarTodos().subscribe({
       next: (rs: Array<Cliente>) => (this.dataSource.data = rs),
-      error: (erro) => this.openSnackBar('Ocorreu um erro no serviço'),
+      error: (erro) =>
+        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
     });
   }
 
@@ -89,7 +90,8 @@ export class ClientesComponent implements OnInit {
   public pesquisarClientes() {
     this.clienteService.pesquisar(this.getValoresForm()).subscribe({
       next: (rs: Array<Cliente>) => (this.dataSource.data = rs),
-      error: (erro) => this.openSnackBar('Ocorreu um erro no serviço'),
+      error: (erro) =>
+        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
     });
   }
 
@@ -98,23 +100,17 @@ export class ClientesComponent implements OnInit {
   }
 
   public openEditar(idCliente: any) {
-    console.log('abrir página editar');
+    this.router.navigateByUrl(`clientes/edicao/${idCliente}`);
   }
 
   public openModalExcluir(idCliente: any) {
     console.log('abrir modal excluir');
-    // this.excluirCliente(6);
-  }
-
-  public openSnackBar(msg: string) {
-    this.snackBar.open(`${msg}`, '', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      duration: 3 * 1000,
-    });
-  }
-
-  linkTo(url: string) {
-    this.router.navigateByUrl(url);
+    // public excluirCliente(id: number) {
+    //   this.clienteService
+    //     .excluir(id)
+    //     .subscribe((rs) =>
+    //       console.log(`EXCLUSÃO DO ${id} REALIZADA COM SUCESSO`, rs)
+    //     );
+    // }
   }
 }

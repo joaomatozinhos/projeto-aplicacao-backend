@@ -6,10 +6,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
+import { UtilService } from 'src/common/util/util.service';
 import { ClientesService } from '../cliente.service';
 
 @Component({
@@ -34,8 +34,7 @@ export class CadastroComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clienteService: ClientesService,
-    private snackBar: MatSnackBar,
-    private router: Router
+    private utilService: UtilService
   ) {}
 
   ngOnInit(): void {
@@ -75,7 +74,7 @@ export class CadastroComponent implements OnInit {
             this.preencherDadosEndereco(rs);
           }
         },
-        error: (erro) => this.openSnackBar('CEP não encontrado'),
+        error: (erro) => this.utilService.openSnackBar('CEP não encontrado'),
       });
   }
 
@@ -129,15 +128,18 @@ export class CadastroComponent implements OnInit {
     ) {
       this.clienteService.cadastrar(this.getCliente()).subscribe({
         next: (rs) => {
-          this.openSnackBar('Cliente cadastrado com sucesso');
+          this.utilService.openSnackBar('Cliente cadastrado com sucesso');
           setTimeout(() => {
-            this.linkTo('clientes');
+            this.utilService.linkTo('clientes');
           }, 3000);
         },
-        error: (erro) => this.openSnackBar('Ocorreu um erro no serviço'),
+        error: (erro) =>
+          this.utilService.openSnackBar('Ocorreu um erro no serviço'),
       });
     } else {
-      this.openSnackBar('Preencha todos os campo obrigatórios antes de salvar');
+      this.utilService.openSnackBar(
+        'Preencha todos os campo obrigatórios antes de salvar'
+      );
     }
   }
 
@@ -146,21 +148,9 @@ export class CadastroComponent implements OnInit {
     if (form.valid) {
       return true;
     } else {
-      this.openSnackBar('Preencha todos os campo obrigatórios');
+      this.utilService.openSnackBar('Preencha todos os campo obrigatórios');
       return false;
     }
-  }
-
-  public openSnackBar(msg: string) {
-    this.snackBar.open(`${msg}`, '', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      duration: 3 * 1000,
-    });
-  }
-
-  linkTo(url: string) {
-    this.router.navigateByUrl(url);
   }
 
   /**

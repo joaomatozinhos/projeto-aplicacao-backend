@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
-import { ClientesService } from '../cliente.service';
-import { ActivatedRoute } from '@angular/router';
 import { Cliente } from 'src/common/model/Cliente';
+import { ClientesService } from '../cliente.service';
 
 @Component({
   selector: 'app-visualizacao',
