@@ -24,6 +24,7 @@ import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxMaskModule } from 'ngx-mask';
+import { MatErrorInputComponent } from 'src/common/components/mat-error-input/mat-error-input.component';
 import { VisualizacaoComponent } from './pages/clientes/visualizacao/visualizacao.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -38,6 +39,7 @@ import { LoginComponent } from './pages/login/login.component';
     VisualizacaoComponent,
     LoginComponent,
     DashboardComponent,
+    MatErrorInputComponent,
   ],
   imports: [
     BrowserModule,
