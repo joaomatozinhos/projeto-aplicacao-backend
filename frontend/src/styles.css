@@ -46,16 +46,18 @@ p {
  margin-right: 20px;
 }
 
-.btn-basic {
-  width: var(--button-width);
-  background-color: var(--secondary-color);
-  border: 1px solid var(--primary-color);
-}
-
 .btn-primary {
   width: var(--button-width);
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  text-transform: capitalize;
+}
+
+.btn-secondary {
+  width: var(--button-width);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  text-transform: capitalize;
 }
 
 .btn-footer {
@@ -77,16 +79,18 @@ p {
   padding: 30px 10px 15px;
 }
 
-.text-header-page {
+.subtitle-page {
   padding: 0 10px 15px;
-  color: var(--secondary-color);
-}
-
-.text-header-page p {
   color: var(--gray-strong);
 }
 
-.container-flex {
+.container-button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.container-expansion-panel-header {
   display: flex;
   justify-content: center;
   gap: 20px;

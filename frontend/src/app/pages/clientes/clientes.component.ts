@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
+import { TypeButton } from 'src/common/enum/TypeButton.enum';
+import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from './cliente.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-clientes',
@@ -15,6 +17,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./clientes.component.css'],
 })
 export class ClientesComponent implements OnInit {
+  public buttonsTitlePage: ButtonTitlePage[] = [
+    { nome: 'novo', tipo: TypeButton.PRIMARY, url: 'clientes/cadastro' },
+  ];
+
   public pesquisaForm!: FormGroup;
 
   public displayedColumns: string[] = [

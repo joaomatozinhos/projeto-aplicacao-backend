@@ -7,6 +7,8 @@ import {
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { TypeButton } from 'src/common/enum/TypeButton.enum';
+import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from '../cliente.service';
 
@@ -16,6 +18,11 @@ import { ClientesService } from '../cliente.service';
   styleUrls: ['./cadastro.component.css'],
 })
 export class CadastroComponent implements OnInit {
+  public buttonsTitlePage: ButtonTitlePage[] = [
+    { nome: 'voltar', tipo: TypeButton.SECONDARY, url: 'clientes' },
+    { nome: 'salvar', tipo: TypeButton.PRIMARY },
+  ];
+
   public dadosPessoaisForm!: FormGroup;
   public enderecoForm!: FormGroup;
 

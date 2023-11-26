@@ -1,0 +1,19 @@
+<div class="container-header-page">
+  <h1 class="title-page">{{ titlePage }}</h1>
+  <div class="container-button">
+    <span *ngFor="let button of buttons">
+      <button
+        mat-flat-button
+        class="btn-{{ button.tipo }}"
+        (click)="executarAcaoButton(button)"
+      >
+        {{ button.nome }}
+      </button>
+    </span>
+  </div>
+</div>
+<div *ngIf="subtitlePage">
+  <p class="subtitle-page">
+    {{ subtitlePage }}
+  </p>
+</div>

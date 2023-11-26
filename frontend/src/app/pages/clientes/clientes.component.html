@@ -1,23 +1,14 @@
-<div class="container-header-page">
-  <h1 class="title-page">Gerenciar Clientes</h1>
-  <div class="container-flex">
-    <button mat-flat-button class="btn-basic" (click)="linkTo('dashboard')">
-      Voltar
-    </button>
-    <button
-      mat-flat-button
-      class="btn-primary"
-      (click)="linkTo('clientes/cadastro')"
-    >
-      Cadastrar
-    </button>
-  </div>
-</div>
+<app-title-page
+  titlePage="Gerenciar Clientes"
+  subtitlePage="Informe os filtros desejados e faça a pesquisa de clientes."
+  [buttons]="buttonsTitlePage"
+>
+</app-title-page>
 
 <mat-accordion>
   <mat-expansion-panel expanded="true">
     <mat-expansion-panel-header>
-      <div class="container-flex">
+      <div class="container-expansion-panel-header">
         <mat-icon>filter_list</mat-icon>
         <mat-panel-title> Filtros de Pesquisa </mat-panel-title>
       </div>
@@ -75,8 +66,8 @@
       </div>
     </form>
 
-    <div class="container-flex">
-      <button mat-flat-button class="btn-basic" (click)="limparFiltros()">
+    <div class="container-button">
+      <button mat-flat-button class="btn-secondary" (click)="limparFiltros()">
         Limpar
       </button>
       <button mat-flat-button class="btn-primary" (click)="pesquisarClientes()">

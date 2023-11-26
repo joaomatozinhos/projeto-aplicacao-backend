@@ -1,20 +1,10 @@
-<div>
-  <div class="container-header-page">
-    <h1 class="title-page">Cadastrar Cliente</h1>
-    <div class="container-flex">
-      <button mat-flat-button class="btn-basic" (click)="linkTo('clientes')">
-        Voltar
-      </button>
-      <button mat-flat-button class="btn-primary" (click)="salvarCliente()">
-        Salvar
-      </button>
-    </div>
-  </div>
-
-  <div class="text-header-page">
-    <p>Preencha os campos e clique no botão salvar para realizar o cadastro.</p>
-  </div>
-</div>
+<app-title-page
+  titlePage="Cadastro de Cliente"
+  subtitlePage="Preencha as informações e clique em salvar para realizar o cadastro."
+  [buttons]="buttonsTitlePage"
+  (clickEvent)="salvarCliente()"
+>
+</app-title-page>
 
 <mat-accordion>
   <mat-expansion-panel
@@ -23,7 +13,7 @@
     (closed)="validarForm(dadosPessoaisForm)"
   >
     <mat-expansion-panel-header>
-      <div class="container-flex">
+      <div class="container-expansion-panel-header">
         <mat-icon>person</mat-icon>
         <mat-panel-title> Dados Pessoais </mat-panel-title>
       </div>
@@ -145,7 +135,7 @@
     (closed)="validarForm(enderecoForm)"
   >
     <mat-expansion-panel-header>
-      <div class="container-flex">
+      <div class="container-expansion-panel-header">
         <mat-icon>location_on</mat-icon>
         <mat-panel-title> Endereço </mat-panel-title>
       </div>
