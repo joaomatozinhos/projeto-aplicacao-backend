@@ -1,0 +1,25 @@
+.container-visualizacao {
+  border: 1px solid var(--secondary-color);
+  box-shadow: 5px 5px 5px var(--secondary-color) ;
+  padding: 10px 5px;
+}
+
+.section-title {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin: 5px 10px 0;
+}
+
+.container-data {
+  padding: 10px 20px;
+}
+
+.container-data p {
+  font-weight: 600;
+  color: var(--tertiary-color);
+}
+
+.container-data p span {
+  font-weight: 400;
+  color: #000000;
+}

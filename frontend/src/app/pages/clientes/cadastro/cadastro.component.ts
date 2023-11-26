@@ -39,10 +39,10 @@ export class CadastroComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initForm();
+    this.createForm();
   }
 
-  public initForm() {
+  public createForm() {
     this.dadosPessoaisForm = this.formBuilder.group({
       nome: new FormControl('', [Validators.required]),
       cpf: new FormControl('', [

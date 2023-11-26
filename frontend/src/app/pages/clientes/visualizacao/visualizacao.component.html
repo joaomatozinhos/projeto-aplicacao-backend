@@ -1,1 +1,67 @@
-<p>visualizacao works!</p>
+<app-title-page
+  titlePage="Visualização de Cliente"
+  [buttons]="buttonsTitlePage"
+>
+</app-title-page>
+
+<section class="container-visualizacao" *ngIf="dadosCliente != null">
+  <div>
+    <div>
+      <h3 class="section-title">Dados Pessoais</h3>
+    </div>
+    <div class="container-data">
+      <p>
+        Nome: <span>{{ dadosCliente.nome }}</span>
+      </p>
+      <p>
+        CPF: <span>{{ dadosCliente.cpf | mask : "000.000.000-00" }}</span>
+      </p>
+      <p>
+        E-mail: <span>{{ dadosCliente.email }}</span>
+      </p>
+      <p>
+        Telefone:
+        <span>{{
+          dadosCliente.telefone | mask : "(00)00000-0000 || +00(00)00000-0000"
+        }}</span>
+      </p>
+      <p *ngIf="dadosCliente.dataNascimento != null">
+        Data de Nascimento:
+        <span>{{ dadosCliente.dataNascimento | date : "dd/MM/yyyy" }}</span>
+      </p>
+    </div>
+  </div>
+  <div>
+    <div>
+      <h3 class="section-title">Endereço</h3>
+    </div>
+    <div class="container-data">
+      <p>
+        CEP: <span>{{ dadosCliente.endereco.cep }}</span>
+      </p>
+      <p>
+        Logradouro: <span>{{ dadosCliente.endereco.logradouro }}, </span
+        ><span>{{ dadosCliente.endereco.numero }}</span>
+      </p>
+      <p>
+        Bairro: <span>{{ dadosCliente.endereco.bairro }}</span>
+      </p>
+      <p
+        *ngIf="
+          dadosCliente.endereco.complemento != null &&
+          dadosCliente.endereco.complemento != ''
+        "
+      >
+        Complemento: <span>{{ dadosCliente.endereco.complemento }}</span>
+      </p>
+      <p>
+        Cidade: <span>{{ dadosCliente.endereco.cidade }}</span> -
+        <span>{{ dadosCliente.endereco.uf }}</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section *ngIf="dadosCliente == null">
+  <p style="margin: 0 10px">Os dados do cliente não puderam ser carregados.</p>
+</section>

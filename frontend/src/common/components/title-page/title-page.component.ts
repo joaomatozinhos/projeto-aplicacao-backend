@@ -18,7 +18,7 @@ export class TitlePageComponent implements OnInit {
 
   ngOnInit() {}
 
-  public executarAcaoButton(button: ButtonTitlePage) {
+  public executarAcao(button: ButtonTitlePage) {
     switch (button?.nome.toLowerCase()) {
       case 'voltar': {
         if (button.url) this.linkTo(button.url);

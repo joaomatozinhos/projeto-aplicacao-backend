@@ -43,7 +43,7 @@ export class ClientesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.initForm();
+    this.createForm();
     this.buscarTodosClientes();
   }
 
@@ -52,7 +52,7 @@ export class ClientesComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  public initForm() {
+  public createForm() {
     this.pesquisaForm = this.formBuilder.group({
       nome: new FormControl(''),
       cpf: new FormControl(''),
@@ -94,7 +94,7 @@ export class ClientesComponent implements OnInit {
   }
 
   public openVisualizar(idCliente: any) {
-    console.log('abrir página visualizar');
+    this.router.navigateByUrl(`clientes/visualizacao/${idCliente}`);
   }
 
   public openEditar(idCliente: any) {
