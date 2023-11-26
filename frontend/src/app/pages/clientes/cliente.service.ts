@@ -35,4 +35,8 @@ export class ClientesService {
   public pesquisar(filter: PesquisaCliente): Observable<any> {
     return this.http.post(`${this.url}/pesquisar`, filter);
   }
+
+  public consultarCep(cep: string) {
+    return this.http.get(`https://viacep.com.br/ws/${cep}/json/`);
+  }
 }

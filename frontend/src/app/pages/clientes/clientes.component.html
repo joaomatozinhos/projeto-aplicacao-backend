@@ -19,11 +19,11 @@
     <mat-expansion-panel-header>
       <div class="container-flex">
         <mat-icon>filter_list</mat-icon>
-        <mat-panel-title> Filtros de pesquisa </mat-panel-title>
+        <mat-panel-title> Filtros de Pesquisa </mat-panel-title>
       </div>
     </mat-expansion-panel-header>
 
-    <form [formGroup]="pesquisaForm" class="example-container">
+    <form [formGroup]="pesquisaForm">
       <div class="row">
         <mat-form-field
           appearance="outline"
@@ -120,7 +120,7 @@
     <ng-container matColumnDef="telefone">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefone</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.telefone | mask : "(00)00000-0000" }}
+        {{ element.telefone | mask : "(00)00000-0000 || +00(00)00000-0000" }}
       </td>
     </ng-container>
 

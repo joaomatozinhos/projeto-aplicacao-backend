@@ -1,1 +1,301 @@
-<p>cadastro works!</p>
+<div>
+  <div class="container-header-page">
+    <h1 class="title-page">Cadastrar Cliente</h1>
+    <div class="container-flex">
+      <button mat-flat-button class="btn-basic" (click)="linkTo('clientes')">
+        Voltar
+      </button>
+      <button mat-flat-button class="btn-primary" (click)="salvarCliente()">
+        Salvar
+      </button>
+    </div>
+  </div>
+
+  <div class="text-header-page">
+    <p>Preencha os campos e clique no botão salvar para realizar o cadastro.</p>
+  </div>
+</div>
+
+<mat-accordion>
+  <mat-expansion-panel
+    [expanded]="step === 1"
+    (opened)="setStep(1)"
+    (closed)="validarForm(dadosPessoaisForm)"
+  >
+    <mat-expansion-panel-header>
+      <div class="container-flex">
+        <mat-icon>person</mat-icon>
+        <mat-panel-title> Dados Pessoais </mat-panel-title>
+      </div>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="dadosPessoaisForm">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>*Nome</mat-label>
+          <input
+            matInput
+            formControlName="nome"
+            placeholder="Digite o nome do cliente"
+          />
+          <mat-error>
+            <app-mat-error-input [control]="dadosPessoaisForm.controls['nome']">
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>*CPF</mat-label>
+          <input
+            matInput
+            formControlName="cpf"
+            mask="000.000.000-00"
+            placeholder="Digite o CPF do cliente"
+          />
+          <mat-error>
+            <app-mat-error-input [control]="dadosPessoaisForm.controls['cpf']">
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        >
+          <mat-label>*E-mail</mat-label>
+          <input
+            matInput
+            formControlName="email"
+            placeholder="Digite o e-mail do cliente"
+          />
+          <mat-error>
+            <app-mat-error-input
+              [control]="dadosPessoaisForm.controls['email']"
+            >
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        >
+          <mat-label>*Telefone</mat-label>
+          <input
+            matInput
+            formControlName="telefone"
+            mask="(00)00000-0000 || +00(00)00000-0000 "
+            placeholder="Digite o telefone do cliente"
+          />
+          <mat-error>
+            <app-mat-error-input
+              [control]="dadosPessoaisForm.controls['telefone']"
+            >
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12"
+        >
+          <mat-label>Data Nascimento</mat-label>
+          <input
+            matInput
+            formControlName="dataNascimento"
+            mask="00/00/0000"
+            placeholder="Digite a data de nascimento do cliente"
+          />
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div class="row justify-content-end">
+      <button
+        mat-flat-button
+        class="btn-footer"
+        (click)="nextOrPrevStep(2, 'next')"
+      >
+        Prosseguir
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<br />
+
+<mat-accordion>
+  <mat-expansion-panel
+    [expanded]="step === 2"
+    (opened)="setStep(2)"
+    (closed)="validarForm(enderecoForm)"
+  >
+    <mat-expansion-panel-header>
+      <div class="container-flex">
+        <mat-icon>location_on</mat-icon>
+        <mat-panel-title> Endereço </mat-panel-title>
+      </div>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="enderecoForm">
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-2 col-lg-2 col-md-3 col-sm-12 col-xs-12"
+        >
+          <mat-label>*CEP</mat-label>
+          <input
+            matInput
+            formControlName="cep"
+            placeholder="Digite o CEP"
+            mask="00000-000"
+            (blur)="consultarCep()"
+          />
+          <mat-error>
+            <app-mat-error-input [control]="enderecoForm.controls['cep']">
+            </app-mat-error-input>
+          </mat-error>
+          <!-- <mat-error *ngIf="enderecoForm.controls['cep'].invalid"
+            >Campo obrigatório.</mat-error
+          > -->
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-8 col-lg-8 col-md-6 col-sm-8 col-xs-12"
+        >
+          <mat-label>*Logradouro</mat-label>
+          <input
+            matInput
+            formControlName="logradouro"
+            placeholder="Digite o logradouro"
+          />
+          <mat-error>
+            <app-mat-error-input
+              [control]="enderecoForm.controls['logradouro']"
+            >
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12"
+        >
+          <mat-label>*Nº</mat-label>
+          <input
+            matInput
+            formControlName="numero"
+            placeholder="Digite o número"
+          />
+          <mat-error>
+            <app-mat-error-input [control]="enderecoForm.controls['numero']">
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>*Bairro</mat-label>
+          <input
+            matInput
+            formControlName="bairro"
+            placeholder="Digite o bairro"
+          />
+          <mat-error>
+            <app-mat-error-input [control]="enderecoForm.controls['bairro']">
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>Complemento</mat-label>
+          <input
+            matInput
+            formControlName="complemento"
+            placeholder="Digite o complemento"
+          />
+          <mat-error>
+            <app-mat-error-input
+              [control]="enderecoForm.controls['complemento']"
+            >
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="row">
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>*Cidade</mat-label>
+          <input
+            matInput
+            formControlName="cidade"
+            placeholder="Digite a cidade"
+          />
+          <mat-error>
+            <app-mat-error-input [control]="enderecoForm.controls['cidade']">
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field
+          appearance="outline"
+          floatLabel="always"
+          [hideRequiredMarker]="true"
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+        >
+          <mat-label>*UF</mat-label>
+          <input matInput formControlName="uf" placeholder="Digite o estado" />
+          <mat-error>
+            <app-mat-error-input [control]="enderecoForm.controls['uf']">
+            </app-mat-error-input>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+
+    <div class="row justify-content-end">
+      <button
+        mat-flat-button
+        class="btn-footer"
+        (click)="nextOrPrevStep(1, 'prev')"
+      >
+        Voltar
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<br />

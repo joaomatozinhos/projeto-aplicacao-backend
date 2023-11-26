@@ -12,6 +12,7 @@ PALETA DE COR
     --secondary-color: #ffe1f4;
     --tertiary-color: #595cb2;
     --blue-strong: #a499fa;
+    --gray-strong: #9b8a95;
     --font-color: #040503;
     --default-font: 'Roboto', sans-serif;
     --linear-botes: linear-gradient(180deg, #8395fc 0%, #3f51b5 100%);
@@ -40,9 +41,69 @@ p {
   color: var(--tertiary-color);
 }
 
+.icon-alert-accordion {
+ color: rgb(248, 82, 82);
+ margin-right: 20px;
+}
+
+.btn-basic {
+  width: var(--button-width);
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.btn-primary {
+  width: var(--button-width);
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+.btn-footer {
+  width: auto;
+  color: var(--tertiary-color);
+  font-size: 16px;
+}
+
+.mat-snack-bar-container {
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
+  min-width: 0 !important;
+}
+
+.container-header-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px 15px;
+}
+
+.text-header-page {
+  padding: 0 10px 15px;
+  color: var(--secondary-color);
+}
+
+.text-header-page p {
+  color: var(--gray-strong);
+}
+
+.container-flex {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .title-page {
   color: var(--primary-color);
   font-size: 28px;
+}
+
+.mat-expansion-panel-header {
+  height: 60px;
+}
+
+.mat-expansion-panel-header .mat-content {
+  display: flex;
+  justify-content: space-between;
 }
 
 .mat-expansion-panel-header-title {
@@ -63,10 +124,11 @@ form {
   font-size: 16px;
   font-weight: 600;
   font-family: var(--default-font);
+  margin-bottom: 10px;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: #c7c7c7;
+  color: #b1b1b1;
 }
 
 input::placeholder {
@@ -78,18 +140,6 @@ mat-label {
   color: var(--primary-color);
   font-size: 18px;
   font-weight: 500;
-}
-
-.btn-basic {
-  width: var(--button-width);
-  background-color: var(--secondary-color);
-  border: 1px solid var(--primary-color);
-}
-
-.btn-primary {
-  width: var(--button-width);
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
 }
 
 table {

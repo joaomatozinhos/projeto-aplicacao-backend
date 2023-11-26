@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from './cliente.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-clientes',
@@ -31,6 +32,7 @@ export class ClientesComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private clienteService: ClientesService,
+    private snackBar: MatSnackBar,
     private router: Router
   ) {}
 
@@ -54,9 +56,10 @@ export class ClientesComponent implements OnInit {
   }
 
   public buscarTodosClientes() {
-    this.clienteService
-      .buscarTodos()
-      .subscribe((rs: Array<Cliente>) => (this.dataSource.data = rs));
+    this.clienteService.buscarTodos().subscribe({
+      next: (rs: Array<Cliente>) => (this.dataSource.data = rs),
+      error: (erro) => this.openSnackBar('Ocorreu um erro no serviço'),
+    });
   }
 
   public limparFiltros() {
@@ -78,9 +81,10 @@ export class ClientesComponent implements OnInit {
   }
 
   public pesquisarClientes() {
-    this.clienteService
-      .pesquisar(this.getValoresForm())
-      .subscribe((rs: Array<Cliente>) => (this.dataSource.data = rs));
+    this.clienteService.pesquisar(this.getValoresForm()).subscribe({
+      next: (rs: Array<Cliente>) => (this.dataSource.data = rs),
+      error: (erro) => this.openSnackBar('Ocorreu um erro no serviço'),
+    });
   }
 
   public openVisualizar(idCliente: any) {
@@ -94,6 +98,14 @@ export class ClientesComponent implements OnInit {
   public openModalExcluir(idCliente: any) {
     console.log('abrir modal excluir');
     // this.excluirCliente(6);
+  }
+
+  public openSnackBar(msg: string) {
+    this.snackBar.open(`${msg}`, '', {
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+      duration: 3 * 1000,
+    });
   }
 
   linkTo(url: string) {
