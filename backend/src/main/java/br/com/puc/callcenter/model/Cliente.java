@@ -62,15 +62,19 @@ public class Cliente {
 		}
 
 		if (cliente.getCpf() != null) {
-			this.telefone = cliente.getCpf();
+			this.cpf = cliente.getCpf();
 		}
 
 		if (cliente.getEmail() != null) {
-			this.telefone = cliente.getEmail();
+			this.email = cliente.getEmail();
 		}
 
 		if (cliente.getTelefone() != null) {
 			this.telefone = cliente.getTelefone();
+		}
+		
+		if (cliente.getDataNascimento() != null) {
+			this.dataNascimento =  cliente.getDataNascimento();
 		}
 
 		if (cliente.getEndereco() != null) {

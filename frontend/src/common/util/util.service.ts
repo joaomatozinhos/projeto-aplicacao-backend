@@ -19,4 +19,8 @@ export class UtilService {
       duration: 3 * 1000,
     });
   }
+
+  public formatarData(data: any) {
+    return new Date(`${data}T00:00`);
+  }
 }

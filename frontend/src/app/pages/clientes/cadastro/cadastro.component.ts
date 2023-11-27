@@ -51,7 +51,7 @@ export class CadastroComponent implements OnInit {
       ]),
       email: new FormControl('', [Validators.required, Validators.email]),
       telefone: new FormControl('', [Validators.required]),
-      dataNascimento: new FormControl(''),
+      dataNascimento: new FormControl({ value: '', disabled: true }),
     });
 
     this.enderecoForm = this.formBuilder.group({
@@ -112,7 +112,7 @@ export class CadastroComponent implements OnInit {
         logradouro: this.enderecoForm.get('logradouro')?.value,
         bairro: this.enderecoForm.get('bairro')?.value,
         complemento: this.enderecoForm.get('complemento')?.value,
-        numero: this.enderecoForm.get('complemento')?.value,
+        numero: this.enderecoForm.get('numero')?.value,
         uf: this.enderecoForm.get('uf')?.value,
         cidade: this.enderecoForm.get('cidade')?.value,
       },
