@@ -30,6 +30,9 @@ import { VisualizacaoComponent } from './pages/clientes/visualizacao/visualizaca
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +45,7 @@ import { LoginComponent } from './pages/login/login.component';
     DashboardComponent,
     MatErrorInputComponent,
     TitlePageComponent,
+    DialogTwoButtonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,7 @@ import { LoginComponent } from './pages/login/login.component';
     MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],

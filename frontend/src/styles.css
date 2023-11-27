@@ -181,3 +181,11 @@ th {
   color: var(--secondary-color);
   text-align: center !important;
 }
+
+.mat-dialog-title {
+  font-size: 22px;
+}
+
+.mat-body, .mat-body-1, .mat-typography {
+  font-size: 16px;
+}

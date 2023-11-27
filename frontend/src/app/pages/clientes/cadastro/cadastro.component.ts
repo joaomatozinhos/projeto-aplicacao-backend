@@ -131,7 +131,7 @@ export class CadastroComponent implements OnInit {
           this.utilService.openSnackBar('Cliente cadastrado com sucesso');
           setTimeout(() => {
             this.utilService.linkTo('clientes');
-          }, 3000);
+          }, 2000);
         },
         error: (erro) =>
           this.utilService.openSnackBar('Ocorreu um erro no serviço'),

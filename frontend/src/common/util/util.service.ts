@@ -16,7 +16,7 @@ export class UtilService {
     this.snackBar.open(`${msg}`, '', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
-      duration: 3 * 1000,
+      duration: 2 * 1000,
     });
   }
 

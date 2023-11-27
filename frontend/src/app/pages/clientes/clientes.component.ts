@@ -10,6 +10,8 @@ import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
 import { UtilService } from 'src/common/util/util.service';
 import { ClientesService } from './cliente.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
 
 @Component({
   selector: 'app-clientes',
@@ -39,7 +41,8 @@ export class ClientesComponent implements OnInit {
     private formBuilder: FormBuilder,
     private clienteService: ClientesService,
     private router: Router,
-    private utilService: UtilService
+    private utilService: UtilService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -104,13 +107,34 @@ export class ClientesComponent implements OnInit {
   }
 
   public openModalExcluir(idCliente: any) {
-    console.log('abrir modal excluir');
-    // public excluirCliente(id: number) {
-    //   this.clienteService
-    //     .excluir(id)
-    //     .subscribe((rs) =>
-    //       console.log(`EXCLUSÃO DO ${id} REALIZADA COM SUCESSO`, rs)
-    //     );
-    // }
+    const dialogRef = this.dialog.open(DialogTwoButtonsComponent, {
+      data: {
+        title: 'Atenção!',
+        body: 'Deseja realmente excluir o cliente cadastrado?',
+        btn1: 'Não',
+        btn2: 'Sim, desejo excluir',
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((rs) => {
+      if (rs) {
+        this.excluirCliente(idCliente);
+      }
+    });
+  }
+
+  public excluirCliente(id: number) {
+    this.clienteService.excluir(id).subscribe({
+      next: (rs) => {
+        this.utilService.openSnackBar(
+          'Exclusão de cliente realizada com sucesso'
+        );
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
+      },
+      error: (erro) =>
+        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
+    });
   }
 }
