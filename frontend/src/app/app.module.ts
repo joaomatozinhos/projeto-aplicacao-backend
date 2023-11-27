@@ -36,6 +36,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderPageComponent } from 'src/common/components/header-page/header-page.component';
 import { SnackbarSimpleComponent } from 'src/common/components/snackbar/snackbar-simple/snackbar-simple.component';
 import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/d
     MatDialogModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatCardModule,
   ],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent],
