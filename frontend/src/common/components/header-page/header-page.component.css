@@ -1,0 +1,13 @@
+.header-page {
+  background-color: var(--primary-color);
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+
+.title-header-page {
+  color: var(--secondary-color);
+  cursor: pointer;
+}

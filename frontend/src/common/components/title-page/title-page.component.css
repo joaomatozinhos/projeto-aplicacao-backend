@@ -1,0 +1,16 @@
+.container-title-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px 15px;
+}
+
+.title-page {
+  color: var(--primary-color);
+  font-size: 28px;
+}
+
+.subtitle-page {
+  padding: 0 10px 15px;
+  color: var(--gray-strong);
+}
