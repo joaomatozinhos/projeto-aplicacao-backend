@@ -5,8 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { SnackbarService } from 'src/common/components/snackbar/snackbar.service';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
@@ -38,7 +38,8 @@ export class EdicaoComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private clienteService: ClientesService,
-    private utilService: UtilService
+    private utilService: UtilService,
+    private snackBarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -79,7 +80,10 @@ export class EdicaoComponent implements OnInit {
         }
       },
       error: (erro) =>
-        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
+        this.snackBarService.openSnackBar(
+          'Ocorreu um erro no serviço',
+          'Error'
+        ),
     });
   }
 
@@ -112,7 +116,8 @@ export class EdicaoComponent implements OnInit {
             this.preencherDadosEndereco(rs);
           }
         },
-        error: (erro) => this.utilService.openSnackBar('CEP não encontrado'),
+        error: (erro) =>
+          this.snackBarService.openSnackBar('CEP não encontrado', 'Warn'),
       });
   }
 
@@ -167,17 +172,24 @@ export class EdicaoComponent implements OnInit {
     ) {
       this.clienteService.editar(this.getCliente()).subscribe({
         next: (rs) => {
-          this.utilService.openSnackBar('Cliente editado com sucesso');
+          this.snackBarService.openSnackBar(
+            'Cliente editado com sucesso',
+            'Success'
+          );
           setTimeout(() => {
             this.utilService.linkTo('clientes');
           }, 2000);
         },
         error: (erro) =>
-          this.utilService.openSnackBar('Ocorreu um erro no serviço'),
+          this.snackBarService.openSnackBar(
+            'Ocorreu um erro no serviço',
+            'Error'
+          ),
       });
     } else {
-      this.utilService.openSnackBar(
-        'Preencha todos os campo obrigatórios antes de editar'
+      this.snackBarService.openSnackBar(
+        'Preencha todos os campo obrigatórios antes de editar',
+        'Warn'
       );
     }
   }
@@ -187,7 +199,10 @@ export class EdicaoComponent implements OnInit {
     if (form.valid) {
       return true;
     } else {
-      this.utilService.openSnackBar('Preencha todos os campo obrigatórios');
+      this.snackBarService.openSnackBar(
+        'Preencha todos os campo obrigatórios antes de editar',
+        'Warn'
+      );
       return false;
     }
   }

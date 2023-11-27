@@ -25,7 +25,6 @@ PALETA DE COR
 
 body {
     font-family: var(--default-font);
-    /* margin: 0 30px; */
   }
 
 h1, h2 {
@@ -34,6 +33,10 @@ h1, h2 {
 
 p {
     color: var(--font-color);
+}
+
+.body-pages {
+  margin: 0 30px;
 }
 
 .mat-icon {
@@ -70,6 +73,11 @@ p {
   background-color: var(--tertiary-color);
   color: var(--secondary-color);
   min-width: 0 !important;
+  margin-top: 10px !important;
+}
+
+.mat-snack-bar-container mat-icon {
+  color: var(--secondary-color);
 }
 
 .container-header-page {

@@ -31,6 +31,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { SnackbarSimpleComponent } from 'src/common/components/snackbar/snackbar-simple/snackbar-simple.component';
 import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
 
 @NgModule({
@@ -46,6 +47,7 @@ import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/d
     MatErrorInputComponent,
     TitlePageComponent,
     DialogTwoButtonsComponent,
+    SnackbarSimpleComponent,
   ],
   imports: [
     BrowserModule,

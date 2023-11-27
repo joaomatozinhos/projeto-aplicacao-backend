@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { SnackbarService } from 'src/common/components/snackbar/snackbar.service';
 import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
@@ -43,6 +44,7 @@ export class ClientesComponent implements OnInit {
     private clienteService: ClientesService,
     private router: Router,
     private utilService: UtilService,
+    private snackBarService: SnackbarService,
     public dialog: MatDialog
   ) {}
 
@@ -69,7 +71,10 @@ export class ClientesComponent implements OnInit {
     this.clienteService.buscarTodos().subscribe({
       next: (rs: Array<Cliente>) => (this.dataSource.data = rs),
       error: (erro) =>
-        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
+        this.snackBarService.openSnackBar(
+          'Ocorreu um erro no serviço',
+          'Error'
+        ),
     });
   }
 
@@ -95,7 +100,10 @@ export class ClientesComponent implements OnInit {
     this.clienteService.pesquisar(this.getValoresForm()).subscribe({
       next: (rs: Array<Cliente>) => (this.dataSource.data = rs),
       error: (erro) =>
-        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
+        this.snackBarService.openSnackBar(
+          'Ocorreu um erro no serviço',
+          'Error'
+        ),
     });
   }
 
@@ -135,15 +143,19 @@ export class ClientesComponent implements OnInit {
   public excluirCliente(id: number) {
     this.clienteService.excluir(id).subscribe({
       next: (rs) => {
-        this.utilService.openSnackBar(
-          'Exclusão de cliente realizada com sucesso'
+        this.snackBarService.openSnackBar(
+          'Exclusão de cliente realizada com sucesso',
+          'Success'
         );
         setTimeout(() => {
           location.reload();
         }, 2000);
       },
       error: (erro) =>
-        this.utilService.openSnackBar('Ocorreu um erro no serviço'),
+        this.snackBarService.openSnackBar(
+          'Ocorreu um erro no serviço',
+          'Error'
+        ),
     });
   }
 }
