@@ -36,19 +36,20 @@ p {
 }
 
 .body-pages {
-  margin: 0 30px;
+  margin: 60px 30px 10px;
 }
 
+/**
+ * Padronização dos ícones
+ */
 .mat-icon {
   font-size: 30px;
   color: var(--tertiary-color);
 }
 
-.icon-alert-accordion {
- color: rgb(248, 82, 82);
- margin-right: 20px;
-}
-
+/**
+ * Padronização dos botões
+ */
 .btn-primary {
   width: var(--button-width);
   background-color: var(--primary-color);
@@ -69,38 +70,66 @@ p {
   font-size: 16px;
 }
 
-.mat-snack-bar-container {
-  background-color: var(--tertiary-color);
-  color: var(--secondary-color);
-  min-width: 0 !important;
-  margin-top: 10px !important;
-}
-
-.mat-snack-bar-container mat-icon {
-  color: var(--secondary-color);
-}
-
-.container-header-page {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 10px 15px;
-}
-
-.subtitle-page {
-  padding: 0 10px 15px;
-  color: var(--gray-strong);
-}
-
 .container-button {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
 
-.title-page {
+/**
+ * Padronização dos formulários
+ */
+ form {
+  margin-top: 20px;
+}
+
+.mat-form-field {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--default-font);
+  margin-bottom: 10px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline, .date-form-field.mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+  color: #b1b1b1;
+}
+
+mat-label {
+  text-transform: uppercase;
   color: var(--primary-color);
-  font-size: 28px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+input::placeholder {
+  font-weight: 300;
+}
+
+/**
+ * Padronização dos formulários de data
+ */
+.date-form-field.mat-form-field-appearance-outline .mat-form-field-flex:hover .mat-form-field-outline {
+  opacity: 1;
+  transition: opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.date-form-field .mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
+  color: #000000;
+}
+
+.date-form-field .mat-form-field-infix {
+    display: flex;
+    justify-content: space-between;
+    padding: 4.5px;
+}
+
+/**
+ * Padronização dos modais
+ */
+.container-header-modal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title-modal {
@@ -108,12 +137,9 @@ p {
   font-size: 22px;
 }
 
-.container-header-modal {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
+/**
+ * Padronização do componente expansion panel
+ */
 .container-expansion-panel-header {
   display: flex;
   justify-content: center;
@@ -139,47 +165,9 @@ p {
   border-top: 1px solid #cecece;
 }
 
-form {
-  margin-top: 20px;
-}
-
-.mat-form-field {
-  font-size: 16px;
-  font-weight: 600;
-  font-family: var(--default-font);
-  margin-bottom: 10px;
-}
-
-.mat-form-field-appearance-outline .mat-form-field-outline, .date-form-field.mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
-  color: #b1b1b1;
-}
-
-.date-form-field.mat-form-field-appearance-outline .mat-form-field-flex:hover .mat-form-field-outline {
-  opacity: 1;
-  transition: opacity 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.date-form-field .mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
-  color: #000000;
-}
-
-.date-form-field .mat-form-field-infix {
-    display: flex;
-    justify-content: space-between;
-    padding: 4.5px;
-}
-
-input::placeholder {
-  font-weight: 300;
-}
-
-mat-label {
-  text-transform: uppercase;
-  color: var(--primary-color);
-  font-size: 18px;
-  font-weight: 500;
-}
-
+/**
+ * Padronização das tabelas
+ */
 table {
   width: 100%;
 }
@@ -192,6 +180,9 @@ th {
   color: var(--tertiary-color);
 }
 
+/**
+ * Padronização do componente menu
+ */
 .mat-menu-content {
   background-color: var(--tertiary-color);
 }
@@ -201,10 +192,20 @@ th {
   text-align: center !important;
 }
 
-.mat-dialog-title {
-  font-size: 22px;
-}
-
+/**
+ * Padronização do componente snackbar
+ */
 .mat-body, .mat-body-1, .mat-typography {
   font-size: 16px;
+}
+
+.mat-snack-bar-container {
+  background-color: var(--tertiary-color);
+  color: var(--secondary-color);
+  min-width: 0 !important;
+  margin-top: 10px !important;
+}
+
+.mat-snack-bar-container mat-icon {
+  color: var(--secondary-color);
 }
