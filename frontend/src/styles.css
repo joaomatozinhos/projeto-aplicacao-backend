@@ -25,8 +25,8 @@ PALETA DE COR
 
 body {
     font-family: var(--default-font);
-    margin: 0 30px;
-}
+    /* margin: 0 30px; */
+  }
 
 h1, h2 {
     color: var(--primary-color);
