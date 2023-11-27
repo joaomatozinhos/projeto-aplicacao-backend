@@ -1,8 +1,9 @@
-<app-title-page
-  titlePage="Visualização de Cliente"
-  [buttons]="buttonsTitlePage"
->
-</app-title-page>
+<div class="container-header-modal">
+  <h1 class="title-modal">Visualização de Cliente</h1>
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
 
 <section class="container-visualizacao" *ngIf="dadosCliente != null">
   <div>

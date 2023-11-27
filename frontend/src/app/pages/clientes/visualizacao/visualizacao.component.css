@@ -5,7 +5,7 @@
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--primary-color);
   margin: 5px 10px 0;
 }
@@ -15,6 +15,7 @@
 }
 
 .container-data p {
+  font-size: 14px;
   font-weight: 600;
   color: var(--tertiary-color);
 }

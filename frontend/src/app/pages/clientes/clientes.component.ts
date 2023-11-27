@@ -1,17 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PesquisaCliente } from 'src/common/dto/PesquisaCliente';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
+import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
 import { UtilService } from 'src/common/util/util.service';
 import { ClientesService } from './cliente.service';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
+import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
 @Component({
   selector: 'app-clientes',
@@ -98,12 +99,20 @@ export class ClientesComponent implements OnInit {
     });
   }
 
-  public openVisualizar(idCliente: any) {
-    this.router.navigateByUrl(`clientes/visualizacao/${idCliente}`);
-  }
-
   public openEditar(idCliente: any) {
     this.router.navigateByUrl(`clientes/edicao/${idCliente}`);
+  }
+
+  public openModalVisualizar(idCliente: any) {
+    const dialogRef = this.dialog.open(VisualizacaoComponent, {
+      width: '50%',
+      autoFocus: false,
+      data: {
+        idCliente: idCliente,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((rs) => {});
   }
 
   public openModalExcluir(idCliente: any) {

@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'clientes', component: ClientesComponent },
   { path: 'clientes/cadastro', component: CadastroComponent },
-  { path: 'clientes/visualizacao/:id', component: VisualizacaoComponent },
   { path: 'clientes/edicao/:id', component: EdicaoComponent },
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { TypeButton } from 'src/common/enum/TypeButton.enum';
@@ -6,27 +7,25 @@ import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from '../cliente.service';
 
+import { Inject } from '@angular/core';
+
 @Component({
   selector: 'app-visualizacao',
   templateUrl: './visualizacao.component.html',
   styleUrls: ['./visualizacao.component.css'],
 })
 export class VisualizacaoComponent implements OnInit {
-  public buttonsTitlePage: ButtonTitlePage[] = [
-    { nome: 'voltar', tipo: TypeButton.SECONDARY, url: 'clientes' },
-  ];
-
   public idCliente!: number;
   public dadosCliente!: Cliente;
 
   constructor(
-    private route: ActivatedRoute,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private clienteService: ClientesService,
     private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
-    this.idCliente = this.route.snapshot.params['id'];
+    this.idCliente = this.data.idCliente;
     this.buscarClientePorId(this.idCliente);
   }
 
