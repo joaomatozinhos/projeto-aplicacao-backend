@@ -11,3 +11,9 @@
   color: var(--secondary-color);
   cursor: pointer;
 }
+
+.header-page strong {
+  color: var(--blue-strong);
+}
+
+
