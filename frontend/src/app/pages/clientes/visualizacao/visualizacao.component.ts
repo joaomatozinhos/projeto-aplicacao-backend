@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute } from '@angular/router';
-import { TypeButton } from 'src/common/enum/TypeButton.enum';
-import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
 import { ClientesService } from '../cliente.service';
 
 import { Inject } from '@angular/core';
+import { SnackbarService } from 'src/common/components/snackbar/snackbar.service';
 
 @Component({
   selector: 'app-visualizacao',
@@ -21,7 +18,7 @@ export class VisualizacaoComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private clienteService: ClientesService,
-    private snackBar: MatSnackBar
+    private snackBarService: SnackbarService
   ) {}
 
   ngOnInit(): void {
@@ -36,15 +33,11 @@ export class VisualizacaoComponent implements OnInit {
           this.dadosCliente = rs;
         }
       },
-      error: (erro) => this.openSnackBar('Ocorreu um erro no serviço'),
-    });
-  }
-
-  public openSnackBar(msg: string) {
-    this.snackBar.open(`${msg}`, '', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      duration: 3 * 1000,
+      error: (erro) =>
+        this.snackBarService.openSnackBar(
+          'Ocorreu um erro no serviço',
+          'Error'
+        ),
     });
   }
 }
