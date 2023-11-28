@@ -1,5 +1,5 @@
 .header-page {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   display: flex;
   gap: 10px;
   position: fixed;
@@ -8,8 +8,9 @@
 }
 
 .title-header-page {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   cursor: pointer;
+  font-size: 24px;
 }
 
 .header-page strong {
