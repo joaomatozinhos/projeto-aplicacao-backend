@@ -11,7 +11,6 @@ import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
-import { UtilService } from 'src/common/util/util.service';
 import { ClientesService } from './cliente.service';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
@@ -22,7 +21,11 @@ import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 })
 export class ClientesComponent implements OnInit {
   public buttonsTitlePage: ButtonTitlePage[] = [
-    { nome: 'novo', tipo: TypeButton.PRIMARY, url: 'clientes/cadastro' },
+    {
+      nome: 'novo cadastro',
+      tipo: TypeButton.PRIMARY,
+      url: 'clientes/cadastro',
+    },
   ];
 
   public pesquisaForm!: FormGroup;
@@ -43,7 +46,6 @@ export class ClientesComponent implements OnInit {
     private formBuilder: FormBuilder,
     private clienteService: ClientesService,
     private router: Router,
-    private utilService: UtilService,
     private snackBarService: SnackbarService,
     public dialog: MatDialog
   ) {}

@@ -25,7 +25,7 @@ export class TitlePageComponent implements OnInit {
         break;
       }
 
-      case 'novo': {
+      case 'novo cadastro': {
         if (button.url) this.linkTo(button.url);
         break;
       }

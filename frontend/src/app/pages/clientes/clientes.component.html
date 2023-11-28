@@ -7,7 +7,7 @@
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <div class="container-expansion-panel-header">
-          <mat-icon>filter_list</mat-icon>
+          <mat-icon>search</mat-icon>
           <mat-panel-title> Pesquisa </mat-panel-title>
         </div>
       </mat-expansion-panel-header>
@@ -131,12 +131,15 @@
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="openModalVisualizar(element.id)">
+              <mat-icon>insert_drive_file</mat-icon>
               <span>Visualizar</span>
             </button>
             <button mat-menu-item (click)="openEditar(element.id)">
+              <mat-icon>edit</mat-icon>
               <span>Editar</span>
             </button>
             <button mat-menu-item (click)="openModalExcluir(element.id)">
+              <mat-icon>delete</mat-icon>
               <span>Excluir</span>
             </button>
           </mat-menu>

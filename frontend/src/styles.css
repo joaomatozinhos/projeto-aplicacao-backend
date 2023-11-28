@@ -102,7 +102,7 @@ mat-label {
 }
 
 input::placeholder {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /**
@@ -191,7 +191,14 @@ th {
 
 .mat-menu-item {
   color: var(--secondary-color);
-  text-align: center !important;
+  text-align: left !important;
+}
+
+.mat-menu-item mat-icon {
+  font-size: 18px;
+  color: var(--secondary-color) !important;
+  margin-top: 4px;
+  margin-right: 5px !important;
 }
 
 /**
