@@ -45,7 +45,8 @@ export class EdicaoComponent implements OnInit {
   ngOnInit(): void {
     this.idCliente = this.route.snapshot.params['id'];
     this.createForm();
-    this.buscarClientePorId(this.idCliente);
+    // this.buscarClientePorId(this.idCliente);
+    this.simularBuscaClientePorId(this.idCliente);
   }
 
   public createForm() {
@@ -221,5 +222,12 @@ export class EdicaoComponent implements OnInit {
     } else {
       this.step--;
     }
+  }
+
+  public simularBuscaClientePorId(id: number) {
+    const cliente = this.utilService
+      .getJsonClientes()
+      .filter((cliente) => cliente.id == id);
+    this.preencherDadosCliente(cliente[0]);
   }
 }
