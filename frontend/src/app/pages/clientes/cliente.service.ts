@@ -8,32 +8,33 @@ import { Cliente } from 'src/common/model/Cliente';
   providedIn: 'root',
 })
 export class ClientesService {
-  private url: string = 'http://localhost:8080/clientes';
+  private LOCAL_URL: string = 'http://localhost:8080/clientes';
+  // private PROD_URL: string = 'http://localhost:8080/clientes';
 
   constructor(private http: HttpClient) {}
 
   public cadastrar(cliente: Cliente): Observable<any> {
-    return this.http.post(`${this.url}/cadastrar`, cliente);
+    return this.http.post(`${this.LOCAL_URL}/cadastrar`, cliente);
   }
 
   public buscarTodos(): Observable<any> {
-    return this.http.get(`${this.url}/buscarTodos`);
+    return this.http.get(`${this.LOCAL_URL}/buscarTodos`);
   }
 
   public buscarPorId(id: number): Observable<any> {
-    return this.http.get(`${this.url}/buscar/${id}`);
+    return this.http.get(`${this.LOCAL_URL}/buscar/${id}`);
   }
 
   public editar(cliente: Cliente): Observable<any> {
-    return this.http.put(`${this.url}/editar`, cliente);
+    return this.http.put(`${this.LOCAL_URL}/editar`, cliente);
   }
 
   public excluir(id: number): Observable<any> {
-    return this.http.delete(`${this.url}/excluir/${id}`);
+    return this.http.delete(`${this.LOCAL_URL}/excluir/${id}`);
   }
 
   public pesquisar(filter: PesquisaCliente): Observable<any> {
-    return this.http.post(`${this.url}/pesquisar`, filter);
+    return this.http.post(`${this.LOCAL_URL}/pesquisar`, filter);
   }
 
   public consultarCep(cep: string) {

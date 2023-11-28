@@ -12,16 +12,16 @@
 }
 
 .mat-column-nome {
-  width: 24%;
+  width: 28%;
 }
 .mat-column-cpf {
-  width: 24%;
+  width: 20%;
 }
 .mat-column-email {
-  width: 24%;
+  width: 29%;
 }
 .mat-column-telefone {
-  width: 24%;
+  width: 19%;
 }
 .mat-column-acao {
   width: 2.5%;
