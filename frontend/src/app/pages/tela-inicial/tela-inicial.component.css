@@ -1,6 +1,6 @@
 .cabecalho {
     background-color: var(--secundary-color);
-    box-shadow: 20px 20px 0px 0px rgb(0, 0, 0);
+    /* box-shadow: 20px 20px 1px 20em rgb(0, 0, 0); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,25 +12,37 @@
     font-size: 2em;
     padding: 15px;
     color: var(--primary-color);
+    text-decoration: none;
 }
 
 .cabecalho__login {
     margin-right: 1em;
+    margin-bottom: 0;
     color: var(--primary-color);
     padding: 5px;
     font-size: 18px;
     text-decoration: none;
 }
 
-.login__alinhamento {
-    display: flex;
-    align-items: center;
-    column-gap: 5px;
+.cabecalho__titulo_login {
+    text-decoration: none;
 }
 
 .strong__titulo {
     color: var(--blue-strong);
 }
+
+.login__grupo {
+    display: flex;
+    align-items: center;
+    row-gap: 1em;
+    text-decoration: none;
+}
+
+.login__icone {
+    width: 1em;
+}
+
 
 .apresentacoes {
     display: flex;

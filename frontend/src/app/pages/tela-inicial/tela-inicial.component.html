@@ -1,9 +1,12 @@
 <header class="cabecalho" id="cabecalho">
-    <h1 class="cabecalho__titulo"><strong class="strong__titulo">Recupera</strong>Mais</h1>
-    <div class="login__alinhamento">
-        <a href="" class="login__icone"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
-
-        <a href="#" class="cabecalho__login">Login</a>
+    <a routerLink="#" class="cabecalho__titulo_login">
+        <h1 routerLink="" class="cabecalho__titulo"><strong class="strong__titulo">Recupera</strong>Mais</h1>
+    </a>
+    <div>
+        <a routerLink="/login" class="login__grupo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="login__icone" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+            <p class="cabecalho__login">Login</p>
+        </a>
     </div>
 </header>
 
@@ -20,7 +23,7 @@
                     Organizando a nossa rede de clientes em um só lugar!
                 </p>
                 <br>
-                <button class="button__cadastro"><a href="#" class="link_cadastrar">Começar</a></button>
+                <button class="button__cadastro"><a routerLink="/login" class="link_cadastrar">Começar</a></button>
             </div>
             <div>
                 <img src="/assets/images/gerenciamento.jpeg" alt="Tabela de visualização dos clientes" class="img__apresentacao_01">
@@ -34,7 +37,7 @@
                     <li>Campos personalizáveis</li>
                     <li>Filtros de pesquisa</li>
                 </ul>
-                <button class="button__cadastro"><a href="#" class="link_cadastrar">Começar</a></button>
+                <button class="button__cadastro"><a routerLink="/login" class="link_cadastrar">Começar</a></button>
             </div>
             <div>
                     <img src="/assets/images/visualizacao.jpeg" alt="Visualização do cliente" class="img__apresentacao_02">

@@ -28,10 +28,12 @@
 .mat-card-title {
     font-size: 2em;
     font-weight: 700;
+    color: var(--primary-color);
 }
 
 .mat-card-subtitle {
     font-size: 1em;
+    color: var(--primary-color);
 }
 
 .link__card {
