@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilService } from 'src/common/util/util.service';
 
 @Component({
   selector: 'app-header-page',
@@ -7,7 +6,7 @@ import { UtilService } from 'src/common/util/util.service';
   styleUrls: ['./header-page.component.css'],
 })
 export class HeaderPageComponent implements OnInit {
-  constructor(public utilService: UtilService) {}
+  constructor() {}
 
   ngOnInit() {}
 }
