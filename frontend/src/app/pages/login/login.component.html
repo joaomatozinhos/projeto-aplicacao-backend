@@ -1,19 +1,38 @@
 <app-header-page></app-header-page>
 
 <main class="box__login">
-    <div class="login__container">
-        <form action="seu_script_de_autenticacao.php" method="post" class="login__form">
-          <h2 class="login__titulo">Login</h2>
-          <label for="username" class="login__label">Usuário:</label>
-          <input type="text" id="username" name="username" required class="login__input">
-    
-          <label for="password" class="login__label">Senha:</label>
-          <input type="password" id="password" name="password" required class="login__input">
-    
-          <button type="submit" class="login__submit">Login</button>
-        </form>
-      </div>
+  <div class="login__container">
+    <form [formGroup]="loginForm">
+      <h2 class="login__titulo">Login</h2>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12"
+      >
+        <mat-label>Usuário</mat-label>
+        <input matInput formControlName="user" placeholder="Digite o usuário" />
+      </mat-form-field>
+
+      <mat-form-field
+        appearance="outline"
+        floatLabel="always"
+        hideRequiredMarker
+        class="col-12"
+      >
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+          placeholder="Digite a senha"
+        />
+      </mat-form-field>
+
+      <button mat-flat-button class="btn-primary" (click)="validarUsuario()">
+        Fazer login
+      </button>
+    </form>
+  </div>
 </main>
-
-
-

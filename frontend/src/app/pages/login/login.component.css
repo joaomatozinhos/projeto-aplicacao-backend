@@ -5,15 +5,16 @@
 
  .login__titulo {
     color: var(--primary-color);
+    margin-bottom: 20px;
  }
 
  .login__container {
       margin-top: 5em;
       background-color: #fff;
-      padding: 20px;
+      padding: 0 20px 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 60%;
+      width: 400px;
       text-align: center;
   }
 
@@ -47,3 +48,9 @@
   .login__submit:hover {
       background-color: var(--tertiary-color);
   }
+
+@media (max-width: 425px) {
+  .login__container {
+    width: 300px;
+  }
+}
