@@ -1,10 +1,10 @@
-package br.com.puc.callcenter;
+package br.com.recuperamais;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CallcenterApplicationTests {
+class RecuperamaisApplicationTests {
 
 	@Test
 	void contextLoads() {

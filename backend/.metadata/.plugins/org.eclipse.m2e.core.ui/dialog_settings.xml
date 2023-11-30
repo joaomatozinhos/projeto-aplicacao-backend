@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="C:\Users\jpmat\Documents\projeto-aplicacao-backend\backend"/>
+			<item value="C:\Users\jpmat\Downloads\recuperamais\recuperamais"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

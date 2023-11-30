@@ -72,9 +72,9 @@ public class Cliente {
 		if (cliente.getTelefone() != null) {
 			this.telefone = cliente.getTelefone();
 		}
-		
+
 		if (cliente.getDataNascimento() != null) {
-			this.dataNascimento =  cliente.getDataNascimento();
+			this.dataNascimento = cliente.getDataNascimento();
 		}
 
 		if (cliente.getEndereco() != null) {
