@@ -1,4 +1,4 @@
-package br.com.puc.callcenter.controller;
+package br.com.recuperamais.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.puc.callcenter.dto.PesquisaCliente;
-import br.com.puc.callcenter.model.Cliente;
-import br.com.puc.callcenter.repository.ClienteRepository;
+import br.com.recuperamais.dto.PesquisaCliente;
+import br.com.recuperamais.model.Cliente;
+import br.com.recuperamais.repository.ClienteRepository;
 import jakarta.transaction.Transactional;
 
 @CrossOrigin

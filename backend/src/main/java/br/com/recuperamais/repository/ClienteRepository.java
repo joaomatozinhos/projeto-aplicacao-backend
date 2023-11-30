@@ -1,11 +1,11 @@
-package br.com.puc.callcenter.repository;
+package br.com.recuperamais.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import br.com.puc.callcenter.model.Cliente;
+import br.com.recuperamais.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 

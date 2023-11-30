@@ -1,4 +1,4 @@
-package br.com.puc.callcenter.model;
+package br.com.recuperamais.model;
 
 import jakarta.persistence.Embeddable;
 

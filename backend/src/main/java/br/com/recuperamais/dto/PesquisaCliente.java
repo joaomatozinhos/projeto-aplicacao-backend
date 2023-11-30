@@ -1,4 +1,4 @@
-package br.com.puc.callcenter.dto;
+package br.com.recuperamais.dto;
 
 public class PesquisaCliente {
 
