@@ -10,7 +10,7 @@ import { Cliente } from 'src/common/model/Cliente';
 export class ClientesService {
   private LOCAL_URL: string = 'http://localhost:8080/clientes';
   private PROD_URL: string =
-    'http://ec2-54-209-196-190.compute-1.amazonaws.com:5000/clientes';
+    'http://ec2-44-215-181-150.compute-1.amazonaws.com:5000/clientes';
 
   constructor(private http: HttpClient) {}
 
