@@ -45,8 +45,7 @@ export class EdicaoComponent implements OnInit {
   ngOnInit(): void {
     this.idCliente = this.route.snapshot.params['id'];
     this.createForm();
-    // this.buscarClientePorId(this.idCliente);
-    this.simularBuscaClientePorId(this.idCliente);
+    this.buscarClientePorId(this.idCliente);
   }
 
   public createForm() {
@@ -68,7 +67,11 @@ export class EdicaoComponent implements OnInit {
       bairro: new FormControl('', [Validators.required]),
       complemento: new FormControl(''),
       numero: new FormControl('', [Validators.required]),
-      uf: new FormControl('', [Validators.required]),
+      uf: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(2),
+      ]),
       cidade: new FormControl('', [Validators.required]),
     });
   }
@@ -158,7 +161,7 @@ export class EdicaoComponent implements OnInit {
         bairro: this.enderecoForm.get('bairro')?.value,
         complemento: this.enderecoForm.get('complemento')?.value,
         numero: this.enderecoForm.get('numero')?.value,
-        uf: this.enderecoForm.get('uf')?.value,
+        uf: this.enderecoForm.get('uf')?.value.toUpperCase(),
         cidade: this.enderecoForm.get('cidade')?.value,
       },
     };
@@ -222,12 +225,5 @@ export class EdicaoComponent implements OnInit {
     } else {
       this.step--;
     }
-  }
-
-  public simularBuscaClientePorId(id: number) {
-    const cliente = this.utilService
-      .getJsonClientes()
-      .filter((cliente) => cliente.id == id);
-    this.preencherDadosCliente(cliente[0]);
   }
 }

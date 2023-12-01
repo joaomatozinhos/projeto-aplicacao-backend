@@ -61,7 +61,11 @@ export class CadastroComponent implements OnInit {
       bairro: new FormControl('', [Validators.required]),
       complemento: new FormControl(''),
       numero: new FormControl('', [Validators.required]),
-      uf: new FormControl('', [Validators.required]),
+      uf: new FormControl('', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(2),
+      ]),
       cidade: new FormControl('', [Validators.required]),
     });
   }
@@ -115,7 +119,7 @@ export class CadastroComponent implements OnInit {
         bairro: this.enderecoForm.get('bairro')?.value,
         complemento: this.enderecoForm.get('complemento')?.value,
         numero: this.enderecoForm.get('numero')?.value,
-        uf: this.enderecoForm.get('uf')?.value,
+        uf: this.enderecoForm.get('uf')?.value.toUpperCase(),
         cidade: this.enderecoForm.get('cidade')?.value,
       },
     };

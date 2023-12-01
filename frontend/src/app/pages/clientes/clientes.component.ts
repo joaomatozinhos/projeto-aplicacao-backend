@@ -11,7 +11,6 @@ import { TypeButton } from 'src/common/enum/TypeButton.enum';
 import { DialogTwoButtonsComponent } from 'src/common/modal/dialog-two-buttons/dialog-two-buttons.component';
 import { ButtonTitlePage } from 'src/common/model/ButtonTitlePage';
 import { Cliente } from 'src/common/model/Cliente';
-import { UtilService } from 'src/common/util/util.service';
 import { ClientesService } from './cliente.service';
 import { VisualizacaoComponent } from './visualizacao/visualizacao.component';
 
@@ -48,14 +47,12 @@ export class ClientesComponent implements OnInit {
     private clienteService: ClientesService,
     private router: Router,
     private snackBarService: SnackbarService,
-    private utilService: UtilService,
     public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.createForm();
-    // this.buscarTodosClientes();
-    this.simularBuscaClientes();
+    this.buscarTodosClientes();
   }
 
   ngAfterViewInit() {
@@ -75,7 +72,7 @@ export class ClientesComponent implements OnInit {
   public buscarTodosClientes() {
     this.clienteService.buscarTodos().subscribe({
       next: (rs: Array<Cliente>) => {
-        (this.dataSource.data = rs), console.log('DADOS', rs);
+        this.dataSource.data = rs;
       },
       error: (erro) =>
         this.snackBarService.openSnackBar(
@@ -164,9 +161,5 @@ export class ClientesComponent implements OnInit {
           'Error'
         ),
     });
-  }
-
-  public simularBuscaClientes() {
-    this.dataSource.data = this.utilService.getJsonClientes();
   }
 }
