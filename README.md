@@ -20,7 +20,7 @@ Após desenvolver o código da aplicação, foi feito deploy para a nuvem AWS, s
 
 ## Imagens da aplicação
 
-![Página inicial](frontend\src\assets\images\tela-inicial.png)
-![Página de gerenciar clientes](frontend\src\assets\images\tela-gerenciar.png)
-![Página de cadastro de cliente](frontend\src\assets\images\tela-cadastro.png)
-![Página de visualização de cliente](frontend\src\assets\images\tela-visualizacao.png)
+![Página inicial](frontend/src/assets/images/tela-inicial.png)
+![Página de gerenciar clientes](frontend/src/assets/images/tela-gerenciar.png)
+![Página de cadastro de cliente](frontend/src/assets/images/tela-cadastro.png)
+![Página de visualização de cliente](frontend/src/assets/images/tela-visualizacao.png)
